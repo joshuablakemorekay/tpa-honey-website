@@ -1,0 +1,143 @@
+═══════════════════════════════════════════════════════════════
+   🍯 T.P.A. HONEY FARM WEBSITE - 2025 EDITION 🐝
+═══════════════════════════════════════════════════════════════
+
+WHAT'S INCLUDED:
+═══════════════
+✅ Complete Flask Web Application
+✅ 110 Product Images (extracted from your PDF)
+✅ 5 Modern HTML Pages
+✅ Fully Responsive Design
+✅ Ready to Run in PyCharm
+✅ Bilingual (Thai & English)
+
+FILES STRUCTURE:
+═══════════════
+tpa_honey_website/
+│
+├── 🚀 start.py              ← DOUBLE-CLICK TO START!
+├── 📱 app.py                ← Main Flask application
+├── 📋 requirements.txt      ← Python dependencies
+├── 📖 README.md            ← Detailed documentation
+├── 📘 INSTALLATION_GUIDE.md ← Step-by-step guide
+│
+├── 🎨 templates/
+│   ├── base.html           ← Master template
+│   ├── index.html          ← Homepage
+│   ├── products.html       ← All products
+│   ├── product_detail.html ← Product details
+│   └── contact.html        ← Contact page
+│
+└── 📸 static/images/
+    └── (110 product images from PDF)
+
+QUICK START:
+═══════════
+1. Open PyCharm
+2. File → Open → Select 'tpa_honey_website' folder
+3. Right-click 'start.py' → Run
+4. Browser opens to: http://localhost:5000
+
+OR EVEN SIMPLER:
+═══════════════
+Just double-click: start.py
+
+WEBSITE PAGES:
+═════════════
+🏠 Home Page        → Welcome, features, product categories
+🛒 Products         → All 8 product categories  
+📦 Product Details  → Individual product with images
+📞 Contact          → Address, phone, email, map
+
+PRODUCT CATEGORIES (8):
+═════════════════════
+1. 🍯 น้ำผึ้ง (Honey) - Pure 100% natural honey
+2. 🌼 เกสรผึ้ง (Bee Pollen) - Rich in nutrients
+3. 👑 นมผึ้ง (Royal Jelly) - Premium health supplement
+4. ⬡ รวงผึ้ง (Honey Comb) - Natural honeycomb
+5. 🍵 ชาเขียว (Green Tea) - Mulberry tea with honey
+6. 💊 พรอพพอลิส (Propolis) - Bee propolis extract
+7. 🧽 ใยบวบ (Luffa) - Natural luffa products
+8. ✨ สปา (Spa Products) - 16 beauty items
+
+DESIGN FEATURES:
+═══════════════
+✨ Honeycomb pattern background
+✨ Warm honey-gold color scheme
+✨ Smooth hover animations
+✨ Modern typography (Playfair Display + Noto Sans Thai)
+✨ Card-based product layout
+✨ Mobile-responsive navigation
+✨ Professional gradients & shadows
+
+TECHNICAL SPECS:
+═══════════════
+🐍 Python 3.7+
+🌶️ Flask 3.0
+🎨 Modern CSS with animations
+📱 Mobile-first responsive design
+🖼️ 110 optimized images
+🌐 Multi-page navigation
+
+REQUIREMENTS:
+════════════
+- Python 3.7 or higher
+- Flask (auto-installed by start.py)
+- PyMuPDF (auto-installed by start.py)
+- Web browser (Chrome, Firefox, Safari, Edge)
+
+CONTACT INFO ON WEBSITE:
+════════════════════════
+📍 143/139 ซ.โรงพยาบาลเจ้าพระยา 
+   แขวงอรุณอมรินทร์ เขตบางกอกน้อย 
+   กรุงเทพ 10700
+
+📞 Phone: 02-884 6177, 434 3031
+📠 Fax: 02-884 5225  
+📧 Email: tpa_farm@yahoo.com
+
+CUSTOMIZATION:
+═════════════
+Want to change something?
+
+Colors     → Edit CSS in templates/base.html
+Products   → Update PRODUCTS dict in app.py
+Contact    → Update CONTACT_INFO in app.py
+Layout     → Modify HTML files in templates/
+Images     → Replace files in static/images/
+
+TROUBLESHOOTING:
+═══════════════
+Q: Port 5000 in use?
+A: Change port in app.py (last line) to 8000
+
+Q: Missing modules?
+A: Run: pip install -r requirements.txt
+
+Q: Images not showing?
+A: Run: python extract_images.py
+
+NEXT STEPS:
+══════════
+1. ✅ Run the website locally
+2. ✅ Test on mobile devices  
+3. ✅ Customize as needed
+4. ✅ Deploy online (optional)
+
+DEPLOYMENT OPTIONS:
+══════════════════
+• PythonAnywhere (easiest, free tier)
+• Heroku (popular, free/paid)
+• DigitalOcean (powerful, paid)
+• AWS/Google Cloud (enterprise, paid)
+
+═══════════════════════════════════════════════════════════════
+Built with Flask, Python, and dedication
+2025 Modern Edition - Fully Responsive & Production-Ready
+═══════════════════════════════════════════════════════════════
+
+🎉 ENJOY YOUR NEW WEBSITE! 🎉
+
+For detailed instructions, see:
+• INSTALLATION_GUIDE.md (step-by-step)
+• README.md (complete documentation)

@@ -1,0 +1,144 @@
+╔══════════════════════════════════════════════════════════════════╗
+║              DEPLOYMENT QUICK REFERENCE                          ║
+║              Copy & Paste Commands                               ║
+╚══════════════════════════════════════════════════════════════════╝
+
+🎯 ONE-PAGE CHEAT SHEET
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 BEFORE YOU START
+
+✅ Add these 4 files to your project root:
+   - requirements.txt
+   - render.yaml
+   - .gitignore
+   - README.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💻 GIT COMMANDS (Run in Terminal)
+
+1. Navigate to your project:
+```bash
+cd C:\Users\joshk\Downloads\Web App No. 2\tpa_honey_website\tpa_honey_website
+```
+
+2. Configure Git (first time only):
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+```
+
+3. Upload to GitHub:
+```bash
+git init
+git add .
+git commit -m "Initial commit - T.P.A. Honey Farm"
+git remote add origin https://github.com/YOUR_USERNAME/tpa-honey-website.git
+git branch -M main
+git push -u origin main
+```
+
+4. Update website later:
+```bash
+git add .
+git commit -m "Your update message"
+git push
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔗 IMPORTANT LINKS
+
+Create GitHub Account:
+https://github.com/signup
+
+Create GitHub Personal Access Token:
+https://github.com/settings/tokens
+
+Download Git:
+https://git-scm.com/downloads
+
+Create Render Account:
+https://render.com/signup
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ RENDER DEPLOYMENT SETTINGS
+
+When creating Web Service on Render:
+
+Name: tpa-honey-farm
+Environment: Python 3
+Build Command: pip install -r requirements.txt
+Start Command: gunicorn app:app
+Instance Type: Free
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 YOUR WEBSITE URL
+
+After deployment:
+https://tpa-honey-farm.onrender.com
+
+(Or whatever name you chose)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 COMMON ISSUES
+
+Problem: "Permission denied" when pushing to GitHub
+Solution: Use Personal Access Token as password
+
+Problem: Website shows "Application failed to respond"
+Solution: Check Render logs, verify requirements.txt exists
+
+Problem: Images not loading
+Solution: Ensure images are in static/images/ folder
+
+Problem: 404 errors
+Solution: Check templates/ folder has all HTML files
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ DEPLOYMENT CHECKLIST
+
+Phase 1: Prepare
+□ Copy 4 deployment files to project
+□ Verify file structure
+
+Phase 2: GitHub
+□ Create GitHub account
+□ Install Git
+□ Create repository
+□ Upload code
+
+Phase 3: Render
+□ Create Render account
+□ Connect GitHub
+□ Deploy web service
+□ Test live website
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔄 UPDATE WORKFLOW
+
+Every time you want to update:
+
+1. Make changes in PyCharm
+2. Save files
+3. Run:
+   ```bash
+   git add .
+   git commit -m "Description of changes"
+   git push
+   ```
+4. Wait 2-3 minutes
+5. Website auto-updates!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️ TOTAL TIME: ~20-30 minutes
+
+🐝🍯 Good luck with your deployment!

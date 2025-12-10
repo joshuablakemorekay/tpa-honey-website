@@ -1,0 +1,388 @@
+╔══════════════════════════════════════════════════════════════════╗
+║            GITHUB SETUP GUIDE (WITH SCREENSHOTS)                 ║
+║            Step-by-Step for Complete Beginners                   ║
+╚══════════════════════════════════════════════════════════════════╝
+
+🎯 WHAT IS GITHUB?
+
+GitHub is like "Google Drive for code". It stores your website files 
+online so Render.com can access them and make your website live.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 1: CREATE GITHUB ACCOUNT
+═══════════════════════════════════════════════════════════════════
+
+STEP 1: Sign Up
+───────────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com
+2. Click "Sign up" (top right corner)
+3. Enter your email address → Click "Continue"
+4. Create a password → Click "Continue"
+5. Choose a username (e.g., "joshktpa" or "tpahoney")
+   - This will be part of your website URL
+   - Choose something professional
+6. Type "n" for email preferences (or "y" if you want updates)
+7. Solve the puzzle to verify you're human
+8. Click "Create account"
+
+STEP 2: Verify Email
+───────────────────────────────────────────────────────────────────
+
+1. Check your email inbox
+2. Find email from GitHub
+3. Click the verification link
+4. You're now logged into GitHub!
+
+✅ Your GitHub username: _______________________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 2: INSTALL GIT ON YOUR COMPUTER
+═══════════════════════════════════════════════════════════════════
+
+Git is software that uploads files to GitHub.
+
+FOR WINDOWS:
+───────────────────────────────────────────────────────────────────
+
+1. Download Git:
+   https://git-scm.com/download/win
+   
+2. Run the installer (Git-2.xx.x-64-bit.exe)
+
+3. Installation Settings (click "Next" for each):
+   ✅ Use default installation location
+   ✅ Select components: Keep all defaults
+   ✅ Default editor: Keep as Vim or choose Notepad
+   ✅ Adjusting PATH: "Git from command line and also from 3rd-party"
+   ✅ HTTPS transport: "Use bundled OpenSSL"
+   ✅ Line endings: "Checkout Windows-style, commit Unix-style"
+   ✅ Terminal emulator: "Use MinTTY"
+   ✅ Default behavior: Keep defaults
+   ✅ Click "Install"
+
+4. Wait for installation to complete
+
+5. Click "Finish"
+
+6. Restart your computer
+
+7. Verify installation:
+   - Open Command Prompt (Windows key + R, type "cmd")
+   - Type: git --version
+   - Should show: git version 2.x.x
+
+FOR MAC:
+───────────────────────────────────────────────────────────────────
+
+1. Open Terminal (Command + Space, type "Terminal")
+
+2. Type: git --version
+
+3. If Git is not installed, Mac will prompt:
+   "The 'git' command requires the command line developer tools"
+   
+4. Click "Install"
+
+5. Wait for installation (may take a few minutes)
+
+6. Verify: git --version
+
+✅ Git installed successfully!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 3: CONFIGURE GIT
+═══════════════════════════════════════════════════════════════════
+
+This tells Git who you are (one-time setup).
+
+1. Open Command Prompt (Windows) or Terminal (Mac)
+
+2. Type these commands (press Enter after each):
+
+```bash
+git config --global user.name "Your Full Name"
+```
+Example: git config --global user.name "Joshua Kelly"
+
+```bash
+git config --global user.email "your-email@example.com"
+```
+Example: git config --global user.email "josh@tpahoney.com"
+
+3. Verify configuration:
+```bash
+git config --list
+```
+
+Should show your name and email.
+
+✅ Git configured!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 4: CREATE GITHUB REPOSITORY
+═══════════════════════════════════════════════════════════════════
+
+A "repository" is a folder on GitHub that stores your website.
+
+STEP 1: Create New Repository
+───────────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com
+2. Log in if needed
+3. Click "+" icon (top right) → "New repository"
+
+STEP 2: Repository Settings
+───────────────────────────────────────────────────────────────────
+
+Fill in these fields:
+
+**Repository name:**
+tpa-honey-website
+(No spaces! Use hyphens)
+
+**Description:**
+T.P.A. Honey Farm Website - ฟาร์มผึ้งเทพภักดี
+
+**Public or Private:**
+Choose "Public"
+(Render needs access to deploy)
+
+**Initialize repository:**
+⚠️ DO NOT check any boxes!
+- Don't add README
+- Don't add .gitignore
+- Don't choose a license
+
+Leave everything else as default.
+
+STEP 3: Create Repository
+───────────────────────────────────────────────────────────────────
+
+1. Click green "Create repository" button
+
+2. You'll see a page with setup instructions
+
+3. Copy your repository URL (looks like):
+   https://github.com/YOUR_USERNAME/tpa-honey-website.git
+
+✅ Repository created!
+✅ Repository URL: _________________________________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 5: UPLOAD YOUR PROJECT TO GITHUB
+═══════════════════════════════════════════════════════════════════
+
+STEP 1: Open Terminal in Your Project Folder
+───────────────────────────────────────────────────────────────────
+
+**Windows (Command Prompt):**
+1. Open File Explorer
+2. Navigate to your project folder:
+   C:\Users\joshk\Downloads\Web App No. 2\tpa_honey_website\tpa_honey_website
+3. Type "cmd" in the address bar
+4. Press Enter
+5. Command Prompt opens in your project folder
+
+**Windows (PyCharm):**
+1. Open your project in PyCharm
+2. Click "Terminal" tab (bottom of screen)
+3. Terminal opens in your project folder
+
+**Mac:**
+1. Open Terminal
+2. Type: cd (space)
+3. Drag your project folder into Terminal
+4. Press Enter
+
+STEP 2: Initialize Git Repository
+───────────────────────────────────────────────────────────────────
+
+Run this command:
+```bash
+git init
+```
+
+You should see:
+"Initialized empty Git repository in ..."
+
+This creates a hidden .git folder (don't worry if you don't see it).
+
+STEP 3: Add All Files
+───────────────────────────────────────────────────────────────────
+
+Run this command:
+```bash
+git add .
+```
+
+The dot (.) means "add everything".
+This stages all your files for upload.
+
+STEP 4: Create First Commit
+───────────────────────────────────────────────────────────────────
+
+Run this command:
+```bash
+git commit -m "Initial commit - T.P.A. Honey Farm Website"
+```
+
+This creates a "snapshot" of your project.
+
+You should see something like:
+"xx files changed, xxxx insertions(+)"
+
+STEP 5: Connect to GitHub
+───────────────────────────────────────────────────────────────────
+
+Run this command (replace YOUR_USERNAME with your actual GitHub username):
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/tpa-honey-website.git
+```
+
+Example:
+```bash
+git remote add origin https://github.com/joshktpa/tpa-honey-website.git
+```
+
+This connects your local project to GitHub.
+
+STEP 6: Set Main Branch
+───────────────────────────────────────────────────────────────────
+
+Run this command:
+```bash
+git branch -M main
+```
+
+This renames your branch to "main" (GitHub's default).
+
+STEP 7: Upload to GitHub
+───────────────────────────────────────────────────────────────────
+
+Run this command:
+```bash
+git push -u origin main
+```
+
+⚠️ IMPORTANT: You'll be asked for credentials:
+
+**Username:** your-github-username
+
+**Password:** NOT your GitHub password!
+You need a Personal Access Token (see next section).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 6: CREATE PERSONAL ACCESS TOKEN
+═══════════════════════════════════════════════════════════════════
+
+GitHub requires a special token instead of your password for security.
+
+STEP 1: Go to Token Settings
+───────────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/settings/tokens
+2. Or: Click your profile picture → Settings → Developer settings → 
+   Personal access tokens → Tokens (classic)
+
+STEP 2: Generate New Token
+───────────────────────────────────────────────────────────────────
+
+1. Click "Generate new token" → "Generate new token (classic)"
+
+2. GitHub may ask for your password → Enter it
+
+3. Fill in token settings:
+
+   **Note:** "Render Deployment Token"
+   
+   **Expiration:** 90 days (or "No expiration" if you prefer)
+   
+   **Select scopes:**
+   ✅ Check "repo" (this checks all sub-boxes automatically)
+   
+4. Scroll down and click "Generate token"
+
+STEP 3: Copy Your Token
+───────────────────────────────────────────────────────────────────
+
+⚠️ CRITICAL: Copy the token NOW!
+You won't be able to see it again!
+
+The token looks like:
+ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Store it somewhere safe (like a password manager or notepad).
+
+STEP 4: Use Token as Password
+───────────────────────────────────────────────────────────────────
+
+When git push asks for password:
+1. Paste your Personal Access Token
+2. Press Enter
+
+✅ Your files are now uploading to GitHub!
+
+You should see:
+"Enumerating objects..."
+"Counting objects..."
+"Writing objects: 100%"
+"Branch 'main' set up to track remote branch 'main'"
+
+STEP 5: Verify Upload
+───────────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/YOUR_USERNAME/tpa-honey-website
+2. Refresh the page
+3. You should see all your files!
+
+✅ Project successfully uploaded to GitHub! 🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔄 UPDATING YOUR CODE LATER
+
+When you make changes and want to upload them:
+
+```bash
+git add .
+git commit -m "Updated gallery with new products"
+git push
+```
+
+That's it! No need to create tokens again.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 TROUBLESHOOTING
+
+**Problem:** "fatal: not a git repository"
+**Solution:** Make sure you're in the correct folder. Run: git init
+
+**Problem:** "Permission denied (publickey)"
+**Solution:** Use HTTPS URL, not SSH. Use Personal Access Token.
+
+**Problem:** "remote: Repository not found"
+**Solution:** Check repository URL is correct. Make sure repo is Public.
+
+**Problem:** "Authentication failed"
+**Solution:** Use Personal Access Token as password, not GitHub password.
+
+**Problem:** Changes not showing on GitHub
+**Solution:** Make sure you ran all commands (add, commit, push).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ GITHUB SETUP COMPLETE!
+
+Your code is now on GitHub and ready for deployment to Render!
+
+Next step: Follow the Render deployment guide to make your website live!
+
+🐝🍯 Great job!
