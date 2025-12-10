@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.title_th }} - T.P.A. Honey Farm{% endblock %}
+
+{% block extra_css %}
+<style>
+    .product-header {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,231,0.95) 100%);
+        border-radius: 20px;
+        margin-bottom: 4rem;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.15);
+    }
+
+    .product-icon-large {
+        font-size: 6rem;
+        margin-bottom: 1rem;
+    }
+
+    .product-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: var(--forest-green);
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .product-subtitle {
+        font-size: 1.5rem;
+        color: var(--honey-dark);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .product-desc {
+        font-size: 1.2rem;
+        color: var(--earth-brown);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .items-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin: 3rem 0;
+    }
+
+    .item-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(244, 165, 24, 0.12);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .item-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 50px rgba(244, 165, 24, 0.25);
+        border-color: var(--honey-gold);
+    }
+
+    .item-image {
+        width: 100%;
+        height: 280px;
+        object-fit: contain;
+        background: linear-gradient(135deg, var(--honey-light) 0%, var(--cream) 100%);
+        padding: 1.5rem;
+    }
+
+    .item-content {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .item-name {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--forest-green);
+        margin-bottom: 0.5rem;
+    }
+
+    .item-name-th {
+        font-size: 1rem;
+        color: var(--earth-brown);
+        margin-bottom: 0.3rem;
+    }
+
+    .item-size {
+        color: var(--honey-dark);
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    .back-button {
+        display: inline-block;
+        background: var(--forest-green);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin: 3rem 0;
+    }
+
+    .back-button:hover {
+        background: var(--earth-brown);
+        transform: translateX(-5px);
+    }
+
+    @media (max-width: 768px) {
+        .product-title {
+            font-size: 2rem;
+        }
+
+        .items-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="product-header">
+    <div class="product-icon-large">
+        {% if category == 'honey' %}🍯
+        {% elif category == 'bee_pollen' %}🌼
+        {% elif category == 'royal_jelly' %}👑
+        {% elif category == 'honey_comb' %}⬡
+        {% elif category == 'green_tea' %}🍵
+        {% elif category == 'propolis' %}💊
+        {% elif category == 'luffa' %}🧽
+        {% elif category == 'spa' %}✨
+        {% endif %}
+    </div>
+    <h1 class="product-title">{{ product.title_th }}</h1>
+    <div class="product-subtitle">{{ product.title_en }}</div>
+    <p class="product-desc">{{ product.description_th }}</p>
+    <p class="product-desc" style="margin-top: 0.5rem; font-size: 1.1rem;">{{ product.description_en }}</p>
+</div>
+
+<div class="items-grid">
+    {% for item in product.products %}
+    <div class="item-card">
+        {% if category == 'honey_comb' %}
+        <img src="/static/images/IMG_honeycomb_sizes.webp" alt="{{ item.name }}" class="item-image">
+        {% elif category != 'honey_comb' %}
+        <img src="/static/images/{{ item.image }}" alt="{{ item.name }}" class="item-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect fill=%22%23FFF4DC%22 width=%22300%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22 fill=%22%23F4A518%22%3E🍯%3C/text%3E%3C/svg%3E'">
+        {% endif %}
+        <div class="item-content">
+            {% if item.name_th %}
+            <div class="item-name-th">{{ item.name_th }}</div>
+            {% endif %}
+            <div class="item-name">{{ item.name }}</div>
+            {% if item.size %}
+            <div class="item-size">{{ item.size }}</div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if category == 'bee_pollen' %}
+<div style="margin: 4rem 0;">
+    <h2 style="text-align: center; color: var(--forest-green); font-size: 2rem; margin-bottom: 2rem;">
+        🌼 Bee Pollen Gallery / แกลเลอรี่เกสรผึ้ง
+    </h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+        <img src="/static/images/IMG_4813.JPG" alt="Bee Pollen Bottle" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+        <img src="/static/images/IMG_4815.JPG" alt="Bee Pollen Bag 500g" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+        <img src="/static/images/IMG_4816.JPG" alt="Bee Pollen Bag" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+        <img src="/static/images/IMG_4822.JPG" alt="Bee Pollen Collection" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+        <img src="/static/images/IMG_4823.JPG" alt="Bee Pollen Jar 100g" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+        <img src="/static/images/IMG_4824.JPG" alt="Two Bee Pollen Bottles" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+        <img src="/static/images/IMG_4825.JPG" alt="Bee Pollen Bottle Single" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+        <img src="/static/images/IMG_4826.JPG" alt="Three Bee Pollen Bottles" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+        <img src="/static/images/IMG_4827.JPG" alt="Bee Pollen Bottle Close-up" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(244,165,24,0.2);">
+    </div>
+</div>
+{% endif %}
+
+<div style="text-align: center;">
+    <a href="/products" class="back-button">← กลับไปหน้าผลิตภัณฑ์</a>
+</div>
+{% endblock %}

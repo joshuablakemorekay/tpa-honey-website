@@ -1,0 +1,325 @@
+{% extends "base.html" %}
+
+{% block title %}แกลเลอรี่ผลิตภัณฑ์ - Product Gallery{% endblock %}
+
+{% block extra_css %}
+<style>
+    .gallery-hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, var(--honey-gold) 0%, var(--honey-amber) 100%);
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        color: white;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.3);
+    }
+
+    .gallery-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-subtitle {
+        font-size: 1.3rem;
+        font-weight: 600;
+        opacity: 0.95;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        background: white;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(244, 165, 24, 0.4);
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        transition: all 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-image {
+        transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        padding: 2rem 1.5rem 1.5rem;
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+    }
+
+    .gallery-caption {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+    }
+
+    .category-section {
+        margin: 4rem 0;
+    }
+
+    .category-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--forest-green);
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+        border-bottom: 3px solid var(--honey-gold);
+        padding-bottom: 1rem;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lightbox.active {
+        display: flex;
+    }
+
+    .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10000;
+    }
+
+    .lightbox-close:hover {
+        color: var(--honey-gold);
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+        .gallery-title {
+            font-size: 2rem;
+        }
+        
+        .gallery-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .gallery-image {
+            height: 300px;
+        }
+
+        .lightbox-close {
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="gallery-hero">
+    <h1 class="gallery-title">📸 แกลเลอรี่ผลิตภัณฑ์</h1>
+    <p class="gallery-subtitle">Product Gallery • คลังภาพผลิตภัณฑ์คุณภาพจาก TPA Beekeeping Farm</p>
+</div>
+
+<div class="category-section">
+    <h2 class="category-title">🍯 ผลิตภัณฑ์เพื่อสุขภาพ • Health Products</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4777.JPG')">
+            <img src="/static/images/IMG_4777.JPG" alt="Ginger Honey" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🫚 Ginger Honey<br>น้ำผึ้งผสมขิง</p>
+                <p style="font-size: 0.75rem; margin-top: 0.5rem; line-height: 1.3;">TPA HONEY IS 100% PURE AND NATURAL. NO ADDED CHEMICALS, ADDITIVE, ARTIFICIAL PRESERVATIVE, AND FRAGRANCE. IT CONTAINS MORE THAN 60% OF REDUCING SUGAR AND RICH IN NATURAL VITAMINS, MINERALS, ORGANIC ACIDS AND ENZYMES.</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4776.JPG')">
+            <img src="/static/images/IMG_4776.JPG" alt="Cinnamon Honey" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🌿 Cinnamon Honey<br>น้ำผึ้งผสมอบเชย</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4779.JPG')">
+            <img src="/static/images/IMG_4779.JPG" alt="Natural Raw Honey Comb" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🍯 Natural Raw Honey Comb<br>รวงผึ้งธรรมชาติในกล่อง</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4781.JPG')">
+            <img src="/static/images/IMG_4781.JPG" alt="Honey & Royal Jelly Soap" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🧼 Honey & Royal Jelly Soap<br>สบู่น้ำผึ้งและนมผึ้ง</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4770.JPG')">
+            <img src="/static/images/IMG_4770.JPG" alt="Honey Products" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🍯 Honey Products<br>ผลิตภัณฑ์น้ำผึ้ง</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4772.JPG')">
+            <img src="/static/images/IMG_4772.JPG" alt="Royal Jelly Capsule" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">👑 Royal Jelly Capsule<br>นมผึ้งแคปซูล 100g</p>
+                <p style="font-size: 0.75rem; margin-top: 0.5rem; line-height: 1.3;">TPA HONEY IS 100% PURE AND NATURAL NO ADDED CHEMICALS ADDITIVE, ARTIFICIAL PRESERVATIVE AND FRAGRANCE. IT CONTAINS MORE THAN 60% OF REDUCING SUGAR AND RICH IN NATURAL VITAMINS, MINERALS, ORGANIC ACIDS AND ENZYMES & DO NOT STORE IN REFRIGERATOR</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4771.JPG')">
+            <img src="/static/images/IMG_4771.JPG" alt="Bee Pollen Jar" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🌸 Bee Pollen Jar<br>เกสรผึ้ง 160g</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_honeycomb_premium.png')">
+            <img src="/static/images/IMG_honeycomb_premium.png" alt="Premium Honey Comb Collection" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🍯 Premium Honey Comb+<br>Pure And Natural 100% Collection</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4773.JPG')">
+            <img src="/static/images/IMG_4773.JPG" alt="Bee Pollen Collection" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🌼 Bee Pollen Collection<br>ชุดสะสมเกสรผึ้ง</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_propolis_bottle_candy.png')">
+            <img src="/static/images/IMG_propolis_bottle_candy.png" alt="TPA Bee Propolis Oil 33% & Propolis Candy" class="gallery-image" onerror="this.src='https://via.placeholder.com/400x400/F4A639/FFFFFF?text=Propolis+Image';this.style.border='3px solid red';">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">💧 TPA Bee Propolis Oil 33%<br>& Propolis Candy</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4394.JPG')">
+            <img src="/static/images/IMG_4394.JPG" alt="Honey Products" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🍯 Honey Products<br>ผลิตภัณฑ์จากน้ำผึ้ง</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4397.JPG')">
+            <img src="/static/images/IMG_4397.JPG" alt="TPA Pure Ginseng in Honey" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🌱 TPA Pure Ginseng in Honey<br>โสมบริสุทธิ์ในน้ำผึ้ง</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_4398.JPG')">
+            <img src="/static/images/IMG_4398.JPG" alt="Summer Honey Collection" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">🍯 Summer Honey Collection<br>น้ำผึ้งฤดูร้อนหลายขนาด</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('/static/images/IMG_bee_propolis_33.jpg')">
+            <img src="/static/images/IMG_bee_propolis_33.jpg" alt="Bee Propolis Oil 33%" class="gallery-image">
+            <div class="gallery-overlay">
+                <p class="gallery-caption">💧 Bee Propolis Oil 33%<br>น้ำมันพรอพพอลิส 33%</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, var(--honey-light) 0%, white 100%); border-radius: 20px;">
+    <h3 style="color: var(--forest-green); font-size: 2rem; margin-bottom: 1.5rem;">
+        🌟 ผลิตภัณฑ์คุณภาพจากธรรมชาติ
+    </h3>
+    <p style="font-size: 1.2rem; color: var(--earth-brown); max-width: 800px; margin: 0 auto 2rem; line-height: 1.8;">
+        ทุกผลิตภัณฑ์ผลิตจากธรรมชาติ 100% ด้วยมาตรฐานคุณภาพสูง 
+        เพื่อสุขภาพและความงามของคุณ
+    </p>
+    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="/health-products" style="display: inline-block; background: var(--honey-gold); color: var(--charcoal); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">
+            🍯 ผลิตภัณฑ์เพื่อสุขภาพ
+        </a>
+        <a href="/skincare" style="display: inline-block; background: #FF69B4; color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">
+            ✨ ผลิตภัณฑ์เพื่อความงาม
+        </a>
+        <a href="/products" style="display: inline-block; background: var(--forest-green); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">
+            🛒 ดูผลิตภัณฑ์ทั้งหมด
+        </a>
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+    document.getElementById('lightbox').classList.add('active');
+    document.getElementById('lightbox-img').src = src;
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+</script>
+{% endblock %}

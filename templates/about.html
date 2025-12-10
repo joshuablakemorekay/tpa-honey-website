@@ -1,0 +1,426 @@
+{% extends "base.html" %}
+
+{% block title %}เกี่ยวกับเรา - T.P.A. Honey Farm{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-header {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,231,0.95) 100%);
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.15);
+    }
+
+    .about-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: var(--forest-green);
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.5rem;
+        color: var(--honey-dark);
+        font-weight: 600;
+    }
+
+    .company-logo {
+        max-width: 200px;
+        margin: 2rem auto;
+        display: block;
+    }
+
+    .content-section {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.15);
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        color: var(--forest-green);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border-left: 5px solid var(--honey-gold);
+        padding-left: 1rem;
+    }
+
+    .content-text {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: var(--charcoal);
+        margin-bottom: 1.5rem;
+    }
+
+    .content-text strong {
+        color: var(--forest-green);
+        font-weight: 600;
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, var(--honey-light) 0%, var(--cream) 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        border-left: 5px solid var(--honey-gold);
+        margin: 2rem 0;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .product-item {
+        background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,248,231,0.8) 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 2px solid var(--honey-light);
+        transition: all 0.3s ease;
+    }
+
+    .product-item:hover {
+        transform: translateY(-5px);
+        border-color: var(--honey-gold);
+        box-shadow: 0 8px 25px rgba(244, 165, 24, 0.2);
+    }
+
+    .product-item h4 {
+        color: var(--forest-green);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .product-item p {
+        color: var(--earth-brown);
+        font-size: 0.95rem;
+    }
+
+    .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        background: white;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 4px 15px rgba(244, 165, 24, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .gallery-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(244, 165, 24, 0.3);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .stat-card {
+        text-align: center;
+        padding: 2rem;
+        background: linear-gradient(135deg, var(--honey-gold) 0%, var(--honey-amber) 100%);
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 4px 15px rgba(244, 165, 24, 0.3);
+    }
+
+    .stat-number {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+        .about-title {
+            font-size: 2rem;
+        }
+
+        .content-section {
+            padding: 1.5rem;
+        }
+
+        .product-grid,
+        .image-gallery,
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="about-header">
+    <img src="/static/company_profile_images/profile_image_1.png" alt="TPA Logo" class="company-logo" onerror="this.style.display='none'">
+    <h1 class="about-title">🐝 เกี่ยวกับเรา</h1>
+    <p class="about-subtitle">About T.P.A. Beekeeping Farm</p>
+</div>
+
+<div class="content-section">
+    <h2 class="section-title">บริษัท ฟาร์มผึ้งเทพภักดี จำกัด</h2>
+    <p class="content-text">
+        <strong>Theppakdee Beekeeping Farm Company Limited</strong>
+    </p>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">3,000+</div>
+            <div class="stat-label">ลังผึ้ง<br>Beehives</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">เมตริกตัน/ปี<br>Metric Tons/Year</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">ปีประสบการณ์<br>Years Experience</div>
+        </div>
+    </div>
+
+    <p class="content-text">
+        ฟาร์มผึ้งเทพภักดี ตั้งอยู่เลขที่ <strong>90 หมู่1 ตำบลศิลาทิพย์ อำเภอชัยบาดาล จังหวัดลพบุรี 15130</strong> 
+        จดทะเบียนการค้าครั้งแรกเมื่อวันที่ 11 พฤศจิกายน 2545 มีทำเลที่ตั้งอยู่เชิงเขาหางตลาด 
+        ห่างจากกรุงเทพมหานครประมาณ 220 กิโลเมตร
+    </p>
+
+    <div class="highlight-box">
+        <p class="content-text" style="margin: 0;">
+            <strong>📍 สำนักงานกรุงเทพฯ:</strong><br>
+            143/139 ซอยโรงพยาบาลเจ้าพระยา ถนนบรมราชชนี แขวงอรุณอมรินทร์ เขตบางกอกน้อย กรุงเทพมหานคร 10700<br>
+            <strong>☎️ โทร:</strong> +662-884-6177 | <strong>📠 โทรสาร:</strong> +662-884-5225<br>
+            <strong>📱 มือถือ:</strong> 089-994-8536, 086-315-1355<br>
+            <strong>🌐 Website:</strong> www.tpahoney.com
+        </p>
+    </div>
+
+    <p class="content-text">
+        บริษัท ฟาร์มผึ้งเทพภักดี จำกัด จดทะเบียนนิติบุคคล เมื่อวันที่ <strong>18 มิถุนายน 2536</strong> 
+        ทะเบียนเลขที่ <strong>0105536069283</strong> ทุนจดทะเบียน <strong>4,000,000 บาท</strong> (ชำระเต็ม)
+    </p>
+</div>
+
+<div class="content-section">
+    <h2 class="section-title">🏆 ประวัติและความเป็นมา</h2>
+    <p class="content-text">
+        ประวัติของฟาร์มผึ้งเทพภักดี เริ่มต้นขึ้นกิจการมาตั้งแต่ปี <strong>พ.ศ. 2542 (ค.ศ. 1999)</strong> 
+        จากการเลี้ยงผึ้งเพียง 2 ลัง และได้พัฒนาขยายเครือข่ายการเลี้ยงผึ้งอย่างถาวรและมั่นคง 
+        มาถึงปัจจุบัน ได้มีการรวมตัวผู้เลี้ยงผึ้งคุณภาพในกลุ่มได้มากกว่า <strong>3,000 ลัง</strong> 
+        มีความสามารถผลิตน้ำผึ้งชนิดต่าง ๆ ได้ตลอดทั้งปี โดยเฉลี่ยมากกว่าปีละ <strong>200 เมตริกตัน</strong>
+    </p>
+
+    <p class="content-text">
+        ฟาร์มผึ้งเทพภักดี เป็นผู้ผลิตและจำหน่ายผลิตภัณฑ์จากผึ้งครบวงจร ที่เปี่ยมด้วยคุณภาพได้มาตรฐานมาโดยตลอด 
+        โดยเริ่มต้นจากการผลิตน้ำผึ้งแท้ 100% เพียงอย่างเดียว และต่อมาได้ขยายกำลังการผลิตและเพิ่มชนิดการผลิต
+        จนสามารถผลิตผลิตภัณฑ์จากผึ้งได้ครบถ้วนทุกชนิด
+    </p>
+
+    <div class="highlight-box">
+        <h3 style="color: var(--forest-green); margin-bottom: 1rem;">🌟 จุดเด่นของเรา</h3>
+        <p class="content-text" style="margin: 0;">
+            <strong>ฟาร์มผึ้งเทพภักดี ได้ชื่อว่าเป็นผู้บุกเบิกและพัฒนาผลิตภัณฑ์จากผึ้ง
+            ที่มีคุณภาพและหลากหลายที่สุดในประเทศไทย</strong>
+        </p>
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="section-title">🍯 ผลิตภัณฑ์เพื่อสุขภาพ</h2>
+    
+    <h3 style="color: var(--forest-green); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem;">
+        1. น้ำผึ้งแท้ 100% (Pure Natural and Organic Honey)
+    </h3>
+    <p class="content-text">
+        ฟาร์มผึ้งเทพภักดี เป็นผู้ผลิตและจำหน่ายน้ำผึ้งแท้ 100% ที่มีความหลากหลายที่สุด
+    </p>
+
+    <div class="product-grid">
+        <div class="product-item">
+            <h4>🌸 น้ำผึ้งจากดอกลำใย</h4>
+            <p>Longan Honey</p>
+        </div>
+        <div class="product-item">
+            <h4>🌳 น้ำผึ้งจากดอกไม้ป่า</h4>
+            <p>Wild Honey</p>
+        </div>
+        <div class="product-item">
+            <h4>🍒 น้ำผึ้งจากดอกลิ้นจี่</h4>
+            <p>Lichi Honey</p>
+        </div>
+        <div class="product-item">
+            <h4>🌻 น้ำผึ้งจากดอกทานตะวัน</h4>
+            <p>Sunflower Honey</p>
+        </div>
+        <div class="product-item">
+            <h4>🌾 น้ำผึ้งจากดอกงา</h4>
+            <p>Sesame Honey</p>
+        </div>
+        <div class="product-item">
+            <h4>🏔️ น้ำผึ้งขม</h4>
+            <p>Mountain/Bitter Honey</p>
+        </div>
+        <div class="product-item">
+            <h4>☀️ น้ำผึ้งเดือนห้า</h4>
+            <p>Summer Honey</p>
+        </div>
+        <div class="product-item">
+            <h4>⭐ น้ำผึ้งเดือนสาม</h4>
+            <p>Extra Premium Honey</p>
+        </div>
+    </div>
+
+    <h3 style="color: var(--forest-green); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem;">
+        2. ผลิตภัณฑ์จากผึ้งอื่นๆ
+    </h3>
+
+    <div class="product-grid">
+        <div class="product-item">
+            <h4>🌼 เกสรผึ้ง</h4>
+            <p>Bee Pollen - ทั้งสดและแห้ง</p>
+        </div>
+        <div class="product-item">
+            <h4>👑 นมผึ้ง</h4>
+            <p>Royal Jelly - ทั้งสดและแคปซูล</p>
+        </div>
+        <div class="product-item">
+            <h4>🕯️ ไขผึ้ง</h4>
+            <p>Bee Wax - ทั้งปลีกและส่ง</p>
+        </div>
+        <div class="product-item">
+            <h4>💊 พรอพพอลิส</h4>
+            <p>Propolis - คุณภาพสูง</p>
+        </div>
+    </div>
+
+    <h3 style="color: var(--forest-green); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem;">
+        3. น้ำผึ้งผสม (Mixed Honey Products)
+    </h3>
+
+    <div class="product-grid">
+        <div class="product-item">
+            <h4>🍋 น้ำผึ้งผสมมะนาว</h4>
+            <p>Honey with Lime</p>
+        </div>
+        <div class="product-item">
+            <h4>🌸 น้ำผึ้งผสมเกสรผึ้ง</h4>
+            <p>Honey with Bee Pollen</p>
+        </div>
+        <div class="product-item">
+            <h4>🫚 น้ำผึ้งผสมขิง</h4>
+            <p>Honey with Ginger</p>
+        </div>
+        <div class="product-item">
+            <h4>🌿 น้ำผึ้งผสมอบเชย</h4>
+            <p>Honey with Cinnamon</p>
+        </div>
+        <div class="product-item">
+            <h4>🌱 น้ำผึ้งผสมโสมต้น</h4>
+            <p>Ginseng Honey</p>
+        </div>
+        <div class="product-item">
+            <h4>👑 Royal Bee 2 in 1</h4>
+            <p>น้ำผึ้ง + นมผึ้ง</p>
+        </div>
+        <div class="product-item">
+            <h4>⭐ Royal Bee 3 in 1</h4>
+            <p>น้ำผึ้ง + นมผึ้ง + เกสรผึ้ง</p>
+        </div>
+        <div class="product-item">
+            <h4>💎 Royal Extreme 5 in 1</h4>
+            <p>สูตรพิเศษ 5 ส่วนผสม</p>
+        </div>
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="section-title">✨ ผลิตภัณฑ์เพื่อความงาม</h2>
+    <p class="content-text">
+        ฟาร์มผึ้งเทพภักดี เป็นผู้นำและริเริ่มผลิตและจำหน่ายผลิตภัณฑ์ธรรมชาติเพื่อความงามจากผึ้งและสมุนไพร 
+        ในแนวความคิดของ <strong>Home Spa</strong> ภายใต้เครื่องหมายการค้า <strong>ตราเทพภักดี</strong> 
+        และ <strong>Beauty Bee</strong>
+    </p>
+
+    <div class="product-grid">
+        <div class="product-item">
+            <h4>🧼 สบู่น้ำผึ้ง</h4>
+            <p>Honey Soap</p>
+        </div>
+        <div class="product-item">
+            <h4>✨ สมุนไพรขัดผิว</h4>
+            <p>ขมิ้นผสมน้ำผึ้ง</p>
+        </div>
+        <div class="product-item">
+            <h4>💆 แชมพูน้ำผึ้ง</h4>
+            <p>Honey Shampoo + Eucalyptus</p>
+        </div>
+        <div class="product-item">
+            <h4>💇 ครีมหมักผม</h4>
+            <p>สมุนไพรธรรมชาติ</p>
+        </div>
+        <div class="product-item">
+            <h4>🧴 พรอพพอลิสโลชั่น</h4>
+            <p>Propolis Lotion</p>
+        </div>
+        <div class="product-item">
+            <h4>💄 แป้งพัพนมผึ้ง</h4>
+            <p>Honey Powder</p>
+        </div>
+        <div class="product-item">
+            <h4>🧽 ใยบวบขัดผิว</h4>
+            <p>Natural Luffa</p>
+        </div>
+        <div class="product-item">
+            <h4>💆 ครีมนวด</h4>
+            <p>Massage Cream</p>
+        </div>
+    </div>
+</div>
+
+<div class="content-section">
+    <h2 class="section-title">📸 แกลเลอรี่ผลิตภัณฑ์</h2>
+    <div class="image-gallery">
+        {% for i in range(2, 18) %}
+        <img src="/static/company_profile_images/profile_image_{{ i }}.png" 
+             alt="TPA Product {{ i }}" 
+             class="gallery-image"
+             onerror="this.style.display='none'">
+        {% endfor %}
+    </div>
+</div>
+
+<div class="content-section" style="background: linear-gradient(135deg, var(--honey-light) 0%, var(--cream) 100%);">
+    <h2 class="section-title">🎯 วิสัยทัศน์</h2>
+    <p class="content-text">
+        <strong>มุ่งมั่นเป็นผู้นำในการผลิตและจำหน่ายผลิตภัณฑ์จากผึ้งคุณภาพสูง 
+        ด้วยมาตรฐานสากล เพื่อสุขภาพและความงามของคนไทยและชาวโลก</strong>
+    </p>
+</div>
+
+<div style="text-align: center; margin: 3rem 0;">
+    <a href="/products" class="cta-button" style="display: inline-block; background: var(--honey-gold); color: var(--charcoal); padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(244, 165, 24, 0.3);">
+        🛒 ดูผลิตภัณฑ์ทั้งหมด
+    </a>
+</div>
+{% endblock %}

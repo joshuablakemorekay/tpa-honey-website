@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+
+{% block title %}ผลิตภัณฑ์เพื่อความงาม - Beauty Products{% endblock %}
+
+{% block extra_css %}
+<style>
+    .spa-hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #FF69B4 0%, #FFB6C1 100%);
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        color: white;
+        box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+    }
+
+    .spa-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .spa-subtitle {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .spa-section {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 40px rgba(255, 105, 180, 0.1);
+    }
+
+    .spa-header {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #C71585;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .treatment-card {
+        background: linear-gradient(135deg, #FFF0F5 0%, white 100%);
+        padding: 2.5rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        border-left: 5px solid #FF69B4;
+    }
+
+    .treatment-title {
+        font-size: 2rem;
+        color: #C71585;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .treatment-text {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: var(--charcoal);
+        margin-bottom: 1rem;
+    }
+
+    .step-box {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
+        border: 2px solid #FFB6C1;
+        transition: all 0.3s ease;
+    }
+
+    .step-box:hover {
+        border-color: #FF69B4;
+        box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2);
+    }
+
+    .step-number {
+        display: inline-block;
+        background: linear-gradient(135deg, #FF69B4 0%, #C71585 100%);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
+
+    .step-title {
+        display: inline;
+        font-size: 1.3rem;
+        color: #C71585;
+        font-weight: 700;
+    }
+
+    .step-content {
+        margin-top: 1rem;
+        padding-left: 3.5rem;
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+    .warning-box {
+        background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 2px solid #FF6B9D;
+        margin: 2rem 0;
+    }
+
+    .warning-box strong {
+        color: #C71585;
+        font-size: 1.2rem;
+    }
+
+    .ingredient-box {
+        background: var(--honey-light);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+    }
+
+    .ingredient-title {
+        font-size: 1.4rem;
+        color: var(--forest-green);
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .benefit-badge {
+        display: inline-block;
+        background: #FF69B4;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        margin: 0.3rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .product-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .showcase-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        border: 3px solid #FFB6C1;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .showcase-card:hover {
+        border-color: #FF69B4;
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    }
+
+    .showcase-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .showcase-title {
+        font-size: 1.5rem;
+        color: #C71585;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .spa-title {
+            font-size: 2rem;
+        }
+        
+        .spa-section {
+            padding: 1.5rem;
+        }
+        
+        .step-content {
+            padding-left: 0;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="spa-hero">
+    <h1 class="spa-title">✨ Beauty Bee Home Spa</h1>
+    <p class="spa-subtitle">ผลิตภัณฑ์เพื่อความงาม • Herbal Skin Care Products</p>
+</div>
+
+<div style="text-align: center; margin: 2rem 0;">
+    <img src="/static/skincare_brochure_images/skincare_brochure_1_1.jpeg" 
+         alt="TPA Skincare Brochure" 
+         class="brochure-image"
+         style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.15);"
+         onerror="this.style.display='none'">
+</div>
+
+<div class="spa-section">
+    <h2 class="spa-header">🧖‍♀️ Deep Cleansing & Detoxification</h2>
+    
+    <div class="treatment-card">
+        <h3 class="treatment-title">WHY Deep Cleansing?</h3>
+        <p class="treatment-text">
+            Because our body accumulates foreign matter particles on skin such as:
+        </p>
+        <div style="margin: 1.5rem 0;">
+            <span class="benefit-badge">Dust • ฝุ่น</span>
+            <span class="benefit-badge">Grime • สิ่งสกปรก</span>
+            <span class="benefit-badge">Stain • คราบ</span>
+            <span class="benefit-badge">Sweat • เหงื่อ</span>
+            <span class="benefit-badge">Dead Cells • เซลล์ตาย</span>
+            <span class="benefit-badge">Oil • ความมัน</span>
+            <span class="benefit-badge">Cosmetics • เครื่องสำอาง</span>
+        </div>
+        <p class="treatment-text">
+            <strong>These cause:</strong> Skin diseases, Pimples, Acne, Wrinkles, Dark circles, Bad smell, and even Skin cancer!
+        </p>
+        <p class="treatment-text" style="color: #C71585; font-weight: 600; font-size: 1.3rem;">
+            ✨ We must WASH and REMOVE for healthy skin!
+        </p>
+    </div>
+
+    <div class="treatment-card">
+        <h3 class="treatment-title">HOW? The 3-Step Method</h3>
+        
+        <div class="step-box">
+            <span class="step-number">1</span>
+            <div class="step-title">First Step: HONEY SOAP</div>
+            <div class="step-content">
+                • Wet your skin and apply HONEY SOAP<br>
+                • Massage for a moment<br>
+                • <strong>Do it 2 TIMES - Don't rinse yet!</strong>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <span class="step-number">2</span>
+            <div class="step-title">Second Step: TURMERIC SCRUB + HONEY SOAP</div>
+            <div class="step-content">
+                • Apply Turmeric Scrub together with HONEY SOAP<br>
+                • Gently scrub & massage on Face and Body<br>
+                • Rub around <strong>1-3 minutes</strong> in the same direction<br>
+                • Continue until dirt is removed<br>
+                • <strong>⚠️ Don't use too much water!</strong>
+            </div>
+        </div>
+
+        <div class="step-box">
+            <span class="step-number">3</span>
+            <div class="step-title">Third Step: HONEY SOAP AGAIN & RINSE</div>
+            <div class="step-content">
+                • Apply HONEY SOAP one more time<br>
+                • Rinse thoroughly with water<br>
+                • Pat dry gently
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>⏰ WHEN to do Deep Cleansing:</strong></p>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">
+                <strong>ONLY 1-2 TIME(S) MONTHLY</strong><br>
+                <span style="font-size: 1rem;">(Depending on skin conditions)</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="spa-section">
+    <h2 class="spa-header">🧼 Honey Soap - Triple Action</h2>
+    
+    <div class="product-showcase">
+        <div class="showcase-card">
+            <div class="showcase-icon">1️⃣</div>
+            <div class="showcase-title">Cleaned</div>
+            <p>ทำความสะอาด</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">2️⃣</div>
+            <div class="showcase-title">Improved</div>
+            <p>ปรับปรุงผิว</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">3️⃣</div>
+            <div class="showcase-title">Treatment</div>
+            <p>บำรุงรักษา</p>
+        </div>
+    </div>
+
+    <div class="ingredient-box">
+        <div class="ingredient-title">🌿 Ingredients</div>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+            Skin care herbal essence: <strong>Honey, Royal Jelly, Bee Pollen, Tanaka, Turmeric, 
+            Aloe, Vitamin E, Minerals</strong> and others.
+        </p>
+    </div>
+
+    <div class="treatment-card">
+        <h3 class="treatment-title">✨ Advantages & Benefits</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Reduces prickly heat & rash (ลดผดผื่นคัน)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Kills bacteria & ringworm (กำจัดแบคทีเรีย)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Controls oil & prevents UV damage (ควบคุมความมัน ป้องกัน UV)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Whitens, softens & freshens skin (ผิวขาว นุ่ม สดชื่น)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Removes dead skin (ขจัดผิวเสื่อม)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Treats facial pimples & acne (รักษาสิว)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Relieves itchiness (บรรเทาอาการคัน)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Anti-dandruff when applied to scalp (ป้องกันรังแค)</li>
+        </ul>
+    </div>
+
+    <div class="treatment-card">
+        <h3 class="treatment-title">📋 How to Use Honey Soap</h3>
+        
+        <div class="step-box">
+            <strong style="color: #C71585;">Daily Use:</strong>
+            <p style="margin-top: 0.5rem;">Apply Honey Soap and wash normally for cleansing and improving skin</p>
+        </div>
+
+        <div class="step-box">
+            <strong style="color: #C71585;">For Pimples & Acne:</strong>
+            <p style="margin-top: 0.5rem;">Apply directly on spot daily. Don't rinse. (ทาทิ้งไว้)</p>
+        </div>
+
+        <div class="step-box">
+            <strong style="color: #C71585;">Face Masking:</strong>
+            <p style="margin-top: 0.5rem;">1-2 times weekly. Leave for 5-30 minutes or overnight depending on skin condition</p>
+        </div>
+
+        <div class="step-box">
+            <strong style="color: #C71585;">Deep Cleansing:</strong>
+            <p style="margin-top: 0.5rem;">Use together with Turmeric Scrub (see 3-step method above)</p>
+        </div>
+    </div>
+</div>
+
+<div class="spa-section">
+    <h2 class="spa-header">✨ Herbal Turmeric Scrub with Honey</h2>
+    
+    <div class="ingredient-box">
+        <div class="ingredient-title">🌿 Ingredients</div>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+            Herbal essence from Thai and India: <strong>Tanaka, Turmeric, Honey, 
+            Traditional Thai Powder, Minerals</strong> and others.
+        </p>
+    </div>
+
+    <div class="treatment-card">
+        <h3 class="treatment-title">🌟 Special Advantages</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Relieves skin diseases & rash (บรรเทาโรคผิวหนัง)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Prevents skin cancer & UV effects (ป้องกันมะเร็งผิวหนัง)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Softens & freshens skin (ผิวนุ่มและสดชื่น)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Removes dead skin cells (ขจัดผิวที่ตายแล้ว)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Eliminates harmful bacteria (กำจัดแบคทีเรียอันตราย)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Provides nutrients for skin (บำรุงผิว)</li>
+            <li style="padding: 0.8rem 0; font-size: 1.1rem;">✓ Suitable for ALL skin types, children & adults</li>
+        </ul>
+    </div>
+
+    <div class="treatment-card">
+        <h3 class="treatment-title">📋 How to Use Turmeric Scrub</h3>
+        
+        <div style="background: #FFF0F5; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                <strong>1.</strong> Apply facial & body scrub together with Honey Soap (if available)<br>
+                <strong>2.</strong> Massage or scrub on face and body until all dirt is removed<br>
+                <strong>3.</strong> Leave 1-5 minutes to let skin absorb herbal essence<br>
+                <strong>4.</strong> Wash with water<br>
+                <strong>5.</strong> Can be used as daily mask or apply on pimples/acne
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="spa-section">
+    <h2 class="spa-header">💖 Complete Skincare Set</h2>
+    
+    <div style="background: linear-gradient(135deg, #FFE4E1 0%, white 100%); padding: 3rem; border-radius: 15px; border: 3px solid #FF69B4;">
+        <h3 style="text-align: center; color: #C71585; font-size: 2rem; margin-bottom: 2rem;">
+            🎁 3 IN 1 HERBAL SKIN CARE SET
+        </h3>
+        
+        <div class="product-showcase">
+            <div class="showcase-card">
+                <div class="showcase-icon">🧼</div>
+                <div class="showcase-title">Honey Soap</div>
+                <p>80 grams • Daily use</p>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-icon">✨</div>
+                <div class="showcase-title">Facial Scrub</div>
+                <p>125 grams • Sensitive skin</p>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-icon">💆</div>
+                <div class="showcase-title">Body Scrub</div>
+                <p>125 grams • Normal skin</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center;">
+            <h4 style="color: #C71585; font-size: 1.5rem; margin-bottom: 1rem;">BENEFITS:</h4>
+            <div style="margin: 1rem 0;">
+                <span class="benefit-badge">Whiten • ผิวขาว</span>
+                <span class="benefit-badge">Brighten • กระจ่างใส</span>
+                <span class="benefit-badge">Tighten • กระชับ</span>
+                <span class="benefit-badge">UV Protection</span>
+                <span class="benefit-badge">Cleanness • สะอาด</span>
+                <span class="benefit-badge">Clearness • ใส</span>
+                <span class="benefit-badge">Fairness • เนียน</span>
+                <span class="benefit-badge">Remove Bad Smell</span>
+                <span class="benefit-badge">Prevent Pimples</span>
+                <span class="benefit-badge">Prevent Acne</span>
+                <span class="benefit-badge">Prevent Rash</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="spa-section">
+    <h2 class="spa-header">🌸 Beauty Bee Product Line</h2>
+    
+    <div class="product-showcase">
+        <div class="showcase-card">
+            <div class="showcase-icon">🧼</div>
+            <div class="showcase-title">Honey Soap</div>
+            <p>สบู่น้ำผึ้ง</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">🧴</div>
+            <div class="showcase-title">Royal Jelly Soap</div>
+            <p>สบู่นมผึ้ง</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">💊</div>
+            <div class="showcase-title">Propolis Soap</div>
+            <p>สบู่พรอพพอลิส</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">💆</div>
+            <div class="showcase-title">Honey Shampoo</div>
+            <p>แชมพูน้ำผึ้ง</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">✨</div>
+            <div class="showcase-title">Propolis Lotion</div>
+            <p>โลชั่นพรอพพอลิส</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">🧴</div>
+            <div class="showcase-title">Honey Scrub Lotion</div>
+            <p>โลชั่นขัดผิว</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">🛁</div>
+            <div class="showcase-title">Bath Salt & Soak</div>
+            <p>เกลืออาบน้ำ</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">🧼</div>
+            <div class="showcase-title">Herbal Liquid Soap</div>
+            <p>สบู่เหลวสมุนไพร</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">💄</div>
+            <div class="showcase-title">Facial Cream</div>
+            <p>ครีมบำรุงหน้า</p>
+        </div>
+        <div class="showcase-card">
+            <div class="showcase-icon">✨</div>
+            <div class="showcase-title">Collagen Gel</div>
+            <p>เจลคอลลาเจน</p>
+        </div>
+    </div>
+</div>
+
+<div class="warning-box" style="text-align: center; font-size: 1.3rem; margin: 3rem 0;">
+    <p><strong>⚠️ IMPORTANT REMINDERS:</strong></p>
+    <p style="margin-top: 1rem;">
+        1. <strong>KEEP DRY</strong> after using soap & scrub<br>
+        2. <strong>STOP USE IF ALLERGY</strong> occurs
+    </p>
+</div>
+
+<div style="text-align: center; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%); border-radius: 15px;">
+    <p style="font-size: 1.3rem; color: #C71585; font-weight: 600; line-height: 1.8;">
+        ✨ Natural herbal essence for beautiful, healthy skin<br>
+        🌿 Suitable for all skin types, children and adults<br>
+        💖 Handcrafted with love at TPA Beekeeping Farm
+    </p>
+</div>
+
+<div style="text-align: center; margin: 3rem 0;">
+    <a href="/health-products" class="cta-button" style="display: inline-block; background: var(--honey-gold); color: var(--charcoal); padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(244, 165, 24, 0.3); margin: 0.5rem;">
+        🍯 ผลิตภัณฑ์เพื่อสุขภาพ
+    </a>
+    <a href="/products" class="cta-button" style="display: inline-block; background: var(--forest-green); color: white; padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3); margin: 0.5rem;">
+        🛒 ดูผลิตภัณฑ์ทั้งหมด
+    </a>
+</div>
+{% endblock %}

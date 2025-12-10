@@ -1,0 +1,423 @@
+{% extends "base.html" %}
+
+{% block title %}ผลิตภัณฑ์เพื่อสุขภาพ - Health Products{% endblock %}
+
+{% block extra_css %}
+<style>
+    .brochure-hero {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, var(--honey-gold) 0%, var(--honey-amber) 100%);
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        color: white;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.3);
+    }
+
+    .brochure-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .brochure-subtitle {
+        font-size: 1.5rem;
+        font-weight: 600;
+        opacity: 0.95;
+    }
+
+    .brochure-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        margin: 2rem 0;
+    }
+
+    .product-section {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.1);
+    }
+
+    .section-header {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--forest-green);
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .product-card {
+        background: linear-gradient(135deg, var(--honey-light) 0%, white 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        border-left: 5px solid var(--honey-gold);
+        transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+        transform: translateX(10px);
+        box-shadow: 0 8px 25px rgba(244, 165, 24, 0.2);
+    }
+
+    .product-name {
+        font-size: 1.8rem;
+        color: var(--forest-green);
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .product-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--charcoal);
+        margin-bottom: 1rem;
+    }
+
+    .benefit-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .benefit-list li {
+        padding: 0.8rem 0;
+        padding-left: 2rem;
+        position: relative;
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    .benefit-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--honey-gold);
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+
+    .instruction-box {
+        background: linear-gradient(135deg, var(--cream) 0%, var(--honey-light) 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-top: 1.5rem;
+        border: 2px solid var(--honey-gold);
+    }
+
+    .instruction-title {
+        font-weight: 700;
+        color: var(--forest-green);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .mini-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 2px solid var(--honey-light);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .mini-card:hover {
+        border-color: var(--honey-gold);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(244, 165, 24, 0.2);
+    }
+
+    .mini-card h4 {
+        color: var(--forest-green);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .mini-card p {
+        color: var(--earth-brown);
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+        .brochure-title {
+            font-size: 2rem;
+        }
+        
+        .product-section {
+            padding: 1.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="brochure-hero">
+    <h1 class="brochure-title">🍯 Tasting for Healthy</h1>
+    <p class="brochure-subtitle">ผลิตภัณฑ์จากผึ้งเพื่อสุขภาพ • Pure Natural Products</p>
+</div>
+
+<div style="text-align: center; margin: 2rem 0;">
+    <img src="/static/honey_brochure_images/honey_brochure_1_1.jpeg" 
+         alt="TPA Health Products Brochure" 
+         class="brochure-image"
+         onerror="this.style.display='none'">
+</div>
+
+<div class="product-section">
+    <h2 class="section-header">🍯 Pure Honey 100% Natural</h2>
+    
+    <div class="product-card">
+        <h3 class="product-name">น้ำผึ้งแท้ 100% • Pure Natural Honey</h3>
+        <p class="product-description">
+            <strong>Honey is an excellent food, good for every gender and age, especially for sportsmen.</strong>
+            น้ำผึ้งเป็นอาหารที่ยอดเยี่ยม เหมาะสำหรับทุกเพศทุกวัย โดยเฉพาะนักกีฬา
+        </p>
+        
+        <ul class="benefit-list">
+            <li>Cure fresh wounds, high blood pressure, hemorrhoids (รักษาแผลสด ความดันโลหิตสูง ริดสีดวงทวาร)</li>
+            <li>Treat intestine disease, heart disease, allergy and cold (โรคลำไส้ หัวใจ ภูมิแพ้ และหวัด)</li>
+            <li>Nurture brain, body and sexual ability (บำรุงสมอง ร่างกาย และสมรรถภาพทางเพศ)</li>
+            <li>Keep freshness and destroy alcohol effect (รักษาความสดชื่นและขจัดผลของแอลกอฮอล์)</li>
+            <li>Contains pure natural sweetness, Protein, Carbohydrate, 6 types of Amino acids, minerals and vitamins</li>
+        </ul>
+
+        <div class="instruction-box">
+            <div class="instruction-title">📋 How to Use:</div>
+            <ul class="benefit-list">
+                <li>Take 1-2 tablespoon(s) each day when stomach is empty for healthful living</li>
+                <li>Mix with other kinds of beverage (ผสมกับเครื่องดื่มต่างๆ)</li>
+                <li>Don't store in refrigerator - will crystallize (ไม่ควรแช่ตู้เย็น)</li>
+                <li>If crystallized, stand bottle in warm water (60°C) - honey will clear again</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 style="text-align: center; color: var(--forest-green); font-size: 2rem; margin: 3rem 0 2rem;">
+        🌸 Honey Varieties
+    </h3>
+    
+    <div class="product-grid">
+        <div class="mini-card">
+            <h4>🌺 Longan Flower</h4>
+            <p>น้ำผึ้งดอกลำใย</p>
+        </div>
+        <div class="mini-card">
+            <h4>🍒 Lichee Flower</h4>
+            <p>น้ำผึ้งดอกลิ้นจี่</p>
+        </div>
+        <div class="mini-card">
+            <h4>🌳 Wild Flower</h4>
+            <p>น้ำผึ้งดอกไม้ป่า</p>
+        </div>
+        <div class="mini-card">
+            <h4>🍯 Raw Honey Comb</h4>
+            <p>รวงผึ้งดิบ</p>
+        </div>
+        <div class="mini-card">
+            <h4>🌱 Ginseng in Honey</h4>
+            <p>โสมในน้ำผึ้ง</p>
+        </div>
+        <div class="mini-card">
+            <h4>🌾 Sesame Flower</h4>
+            <p>น้ำผึ้งดอกงา</p>
+        </div>
+        <div class="mini-card">
+            <h4>🌻 Sunflower</h4>
+            <p>น้ำผึ้งดอกทานตะวัน</p>
+        </div>
+        <div class="mini-card">
+            <h4>☀️ Summer Honey</h4>
+            <p>น้ำผึ้งฤดูร้อน</p>
+        </div>
+        <div class="mini-card">
+            <h4>⭐ Extra Premium</h4>
+            <p>น้ำผึ้งพรีเมียม</p>
+        </div>
+        <div class="mini-card">
+            <h4>🏔️ Mountain Honey</h4>
+            <p>น้ำผึ้งภูเขา</p>
+        </div>
+    </div>
+</div>
+
+<div class="product-section">
+    <h2 class="section-header">👑 Royal Jelly 100%</h2>
+    
+    <div class="product-card">
+        <h3 class="product-name">นมผึ้ง • Royal Jelly</h3>
+        <p class="product-description">
+            <strong>Royal Jelly is the most excellent food that bees can produce</strong> and makes Queen Bee survive for 3-7 years, 
+            comparing to normal bees that live for only 30-60 days.
+        </p>
+        
+        <ul class="benefit-list">
+            <li>Extends cell lives and improves blood flow (ยืดอายุเซลล์และปรับปรุงการไหลเวียนเลือด)</li>
+            <li>Prevents micro-organisms and cancer growth (ป้องกันจุลินทรีย์และมะเร็ง)</li>
+            <li>Best for immune system (ดีที่สุดสำหรับระบบภูมิคุ้มกัน)</li>
+            <li>Good for nerve, brain and glands (ดีสำหรับประสาท สมอง และต่อมต่างๆ)</li>
+            <li>Helps produce hormones and improve blood flow (ช่วยผลิตฮอร์โมน)</li>
+            <li>Prevents obesity-thinness, reduces fat in blood vessels (ป้องกันอ้วนผอม ลดไขมัน)</li>
+            <li>Anti-aging, rejuvenate and keeps beautiful skin (ชะลอวัย ฟื้นฟู รักษาผิวสวย)</li>
+        </ul>
+
+        <div class="instruction-box">
+            <div class="instruction-title">📋 How to Use:</div>
+            <ul class="benefit-list">
+                <li>Keep in refrigerator (FREEZER) only (เก็บในช่องแช่แข็งเท่านั้น)</li>
+                <li>Take 1/4 – 1/2 teaspoon daily (รับประทานวันละ 1/4-1/2 ช้อนชา)</li>
+                <li>Mix with Honey or other beverages (ผสมน้ำผึ้งหรือเครื่องดื่มอื่น)</li>
+                <li>Mix with lotion or night cream and apply on face and skin (ผสมโลชั่นทาผิว)</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 style="text-align: center; color: var(--forest-green); font-size: 1.8rem; margin: 2rem 0;">
+        Royal Jelly Products
+    </h3>
+    
+    <div class="product-grid">
+        <div class="mini-card">
+            <h4>💧 Fresh Royal Jelly</h4>
+            <p>นมผึ้งสด 100%</p>
+        </div>
+        <div class="mini-card">
+            <h4>💊 Royal Jelly Capsule</h4>
+            <p>นมผึ้งแคปซูล</p>
+        </div>
+        <div class="mini-card">
+            <h4>👑 Royal Bee 2 in 1</h4>
+            <p>นมผึ้งในน้ำผึ้ง</p>
+        </div>
+        <div class="mini-card">
+            <h4>⭐ Royal Bee 3 in 1</h4>
+            <p>นมผึ้ง + เกสรผึ้ง + น้ำผึ้ง</p>
+        </div>
+        <div class="mini-card">
+            <h4>💎 Royal Extreme 5 in 1</h4>
+            <p>Formula I, II, IV</p>
+        </div>
+        <div class="mini-card">
+            <h4>🌟 Royal Extreme 7 in 1</h4>
+            <p>สูตรพิเศษ 7 ส่วนผสม</p>
+        </div>
+    </div>
+</div>
+
+<div class="product-section">
+    <h2 class="section-header">🌼 Bee Pollen 100% Natural</h2>
+    
+    <div class="product-card">
+        <h3 class="product-name">เกสรผึ้ง • Bee Pollen</h3>
+        <p class="product-description">
+            <strong>Bee Pollen contains higher quality protein than meat, milk and eggs!</strong>
+            เกสรผึ้งมีโปรตีนคุณภาพสูงกว่าเนื้อ นม และไข่!
+        </p>
+        
+        <ul class="benefit-list">
+            <li>16 types of Vitamins, 18 types of Amino acids (วิตามิน 16 ชนิด, กรดอะมิโน 18 ชนิด)</li>
+            <li>Rich in Carbohydrates and minerals (คาร์โบไฮเดรตและแร่ธาตุ)</li>
+            <li>Prevents and cures allergy, Migraine, sleeplessness (แก้ภูมิแพ้ ไมเกรน นอนไม่หลับ)</li>
+            <li>Treats high blood pressure, Sinus, cold (ความดันสูง ไซนัส หวัด)</li>
+            <li>Relieves Rheumatism and joint pain (รักษาโรคข้ออักเสบและปวดข้อ)</li>
+            <li>Reduces fat and sugar levels in blood (ลดไขมันและน้ำตาลในเลือด)</li>
+            <li>Keeps beautiful skin and healthy hair (ผิวสวยและผมสุขภาพดี)</li>
+        </ul>
+
+        <div class="instruction-box">
+            <div class="instruction-title">⚠️ Important: STOP USE IF ALLERGY</div>
+            <div class="instruction-title">📋 How to Use:</div>
+            <ul class="benefit-list">
+                <li>Take 1/2 - 1 teaspoon directly anytime (รับประทานโดยตรง 1/2-1 ช้อนชา)</li>
+                <li>Mix with tea or other beverages (ผสมกับชาหรือเครื่องดื่มอื่น)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="product-section">
+    <h2 class="section-header">🍶 Honey Cider Vinegar</h2>
+    
+    <div class="product-grid">
+        <div class="mini-card">
+            <h4>🍯 Honey Vinegar</h4>
+            <p>น้ำส้มสายชูน้ำผึ้ง</p>
+        </div>
+        <div class="mini-card">
+            <h4>🍎 Apple Vinegar</h4>
+            <p>น้ำส้มสายชูแอปเปิ้ล</p>
+        </div>
+        <div class="mini-card">
+            <h4>🍍 Pineapple Vinegar</h4>
+            <p>น้ำส้มสายชูสับปะรด</p>
+        </div>
+        <div class="mini-card">
+            <h4>🥥 Coconut Vinegar</h4>
+            <p>น้ำส้มสายชูมะพร้าว</p>
+        </div>
+        <div class="mini-card">
+            <h4>🥭 Durian Vinegar</h4>
+            <p>น้ำส้มสายชูทุเรียน</p>
+        </div>
+        <div class="mini-card">
+            <h4>🌸 Longan Vinegar</h4>
+            <p>น้ำส้มสายชูลำใย</p>
+        </div>
+        <div class="mini-card">
+            <h4>🍇 Mangosteen Vinegar</h4>
+            <p>น้ำส้มสายชูมังคุด</p>
+        </div>
+    </div>
+</div>
+
+<div class="product-section">
+    <h2 class="section-header">🌿 Other Products</h2>
+    
+    <div class="product-grid">
+        <div class="mini-card">
+            <h4>🌱 Ginseng Root</h4>
+            <p>Powder & Capsule</p>
+        </div>
+        <div class="mini-card">
+            <h4>💊 Propolis</h4>
+            <p>พรอพพอลิส</p>
+        </div>
+        <div class="mini-card">
+            <h4>🕯️ Bee Wax</h4>
+            <p>ไขผึ้ง</p>
+        </div>
+        <div class="mini-card">
+            <h4>🌿 Balm & Inhaler</h4>
+            <p>Ginseng & Bee Wax</p>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; margin: 3rem 0; padding: 2rem; background: var(--honey-light); border-radius: 15px;">
+    <p style="font-size: 1.2rem; color: var(--forest-green); font-weight: 600;">
+        🌟 ผลิตภัณฑ์จากผึ้งมีคุณค่าสูง เพราะมีธาตุอาหารมากมาย<br>
+        โดยเฉพาะกรดอะมิโนมีกว่า 18 ชนิด มีแร่ธาตุ วิตามิน โปรตีนอย่างสมบูรณ์
+    </p>
+</div>
+
+<div style="text-align: center; margin: 3rem 0;">
+    <a href="/products" class="cta-button" style="display: inline-block; background: var(--honey-gold); color: var(--charcoal); padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(244, 165, 24, 0.3); margin: 0.5rem;">
+        🛒 ดูผลิตภัณฑ์ทั้งหมด
+    </a>
+    <a href="/skincare" class="cta-button" style="display: inline-block; background: var(--forest-green); color: white; padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3); margin: 0.5rem;">
+        ✨ ผลิตภัณฑ์เพื่อความงาม
+    </a>
+</div>
+{% endblock %}

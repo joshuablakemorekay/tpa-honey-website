@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    .hero {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,248,231,0.9) 100%);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(244, 165, 24, 0.2);
+        margin-bottom: 4rem;
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--forest-green);
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(244, 165, 24, 0.2);
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--earth-brown);
+        margin-bottom: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        color: var(--charcoal);
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        line-height: 1.8;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: var(--honey-gold);
+        color: var(--charcoal);
+        padding: 1.2rem 3rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(244, 165, 24, 0.3);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(244, 165, 24, 0.5);
+        background: var(--honey-amber);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin: 4rem 0;
+    }
+
+    .feature-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.15);
+        transition: all 0.3s ease;
+        text-align: center;
+        border: 2px solid transparent;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(244, 165, 24, 0.3);
+        border-color: var(--honey-gold);
+    }
+
+    .feature-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    .feature-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        color: var(--earth-brown);
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .feature-description {
+        color: var(--charcoal);
+        opacity: 0.85;
+        line-height: 1.7;
+    }
+
+    .products-showcase {
+        margin: 5rem 0;
+        text-align: center;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--forest-green);
+        margin-bottom: 3rem;
+        font-weight: 700;
+    }
+
+    .product-categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .category-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        text-decoration: none;
+        color: var(--charcoal);
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 30px rgba(244, 165, 24, 0.12);
+        border: 2px solid transparent;
+    }
+
+    .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 50px rgba(244, 165, 24, 0.25);
+        border-color: var(--honey-gold);
+    }
+
+    .category-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .category-title-th {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--forest-green);
+        margin-bottom: 0.3rem;
+    }
+
+    .category-title-en {
+        font-size: 1rem;
+        color: var(--honey-dark);
+        opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+
+        .features-grid,
+        .product-categories {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h2 class="hero-title">ยินดีต้อนรับสู่ ฟาร์มผึ้งเทพภักดี</h2>
+    <p class="hero-subtitle">🍯 น้ำผึ้งแท้ 100% คุณภาพพรีเมียม 🐝</p>
+    <p class="hero-description">
+        เราเป็นฟาร์มผึ้งที่มีมาตรฐาน ผลิตน้ำผึ้งแท้จากธรรมชาติ 
+        พร้อมผลิตภัณฑ์จากผึ้งคุณภาพสูง เพื่อสุขภาพและความงามของคุณ
+    </p>
+    <a href="/products" class="cta-button">🛒 ดูผลิตภัณฑ์ทั้งหมด</a>
+</div>
+
+<section class="features-grid">
+    <div class="feature-card">
+        <span class="feature-icon">🍯</span>
+        <h3 class="feature-title">น้ำผึ้งแท้ 100%</h3>
+        <p class="feature-description">
+            น้ำผึ้งคุณภาพสูงจากธรรมชาติ ไม่ผ่านการปรุงแต่ง 
+            รสชาติหวานมัน เป็นธรรมชาติ
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-icon">🐝</span>
+        <h3 class="feature-title">ฟาร์มมาตรฐาน</h3>
+        <p class="feature-description">
+            ฟาร์มผึ้งที่ได้มาตรฐาน ดูแลด้วยความใส่ใจ
+            ในทุกขั้นตอนการผลิต
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-icon">🌿</span>
+        <h3 class="feature-title">ผลิตภัณฑ์ธรรมชาติ</h3>
+        <p class="feature-description">
+            นมผึ้ง เกสรผึ้ง รวงผึ้ง และผลิตภัณฑ์
+            เพื่อสุขภาพและความงาม
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-icon">✨</span>
+        <h3 class="feature-title">คุณภาพพรีเมียม</h3>
+        <p class="feature-description">
+            ผลิตภัณฑ์คุณภาพสูง ผ่านการคัดสรร
+            เพื่อลูกค้าทุกท่าน
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-icon">🌸</span>
+        <h3 class="feature-title">ผลิตภัณฑ์สปา</h3>
+        <p class="feature-description">
+            ครีมบำรุงผิว สบู่น้ำผึ้ง และผลิตภัณฑ์
+            เพื่อความงาม
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-icon">🚚</span>
+        <h3 class="feature-title">จัดส่งทั่วประเทศ</h3>
+        <p class="feature-description">
+            บริการจัดส่งทั่วไทย รวดเร็ว
+            ปลอดภัย ได้มาตรฐาน
+        </p>
+    </div>
+</section>
+
+<section class="products-showcase">
+    <h2 class="section-title">🛒 ผลิตภัณฑ์ของเรา</h2>
+    
+    <div class="product-categories">
+        <a href="/products/honey" class="category-card">
+            <span class="category-icon">🍯</span>
+            <div class="category-title-th">น้ำผึ้ง</div>
+            <div class="category-title-en">HONEY</div>
+        </a>
+
+        <a href="/products/bee_pollen" class="category-card">
+            <span class="category-icon">🌼</span>
+            <div class="category-title-th">เกสรผึ้ง</div>
+            <div class="category-title-en">BEE POLLEN</div>
+        </a>
+
+        <a href="/products/royal_jelly" class="category-card">
+            <span class="category-icon">👑</span>
+            <div class="category-title-th">นมผึ้ง</div>
+            <div class="category-title-en">ROYAL JELLY</div>
+        </a>
+
+        <a href="/products/honey_comb" class="category-card">
+            <span class="category-icon">⬡</span>
+            <div class="category-title-th">รวงผึ้ง</div>
+            <div class="category-title-en">HONEY COMB</div>
+        </a>
+
+        <a href="/products/green_tea" class="category-card">
+            <span class="category-icon">🍵</span>
+            <div class="category-title-th">ชาเขียว</div>
+            <div class="category-title-en">GREEN TEA</div>
+        </a>
+
+        <a href="/products/propolis" class="category-card">
+            <span class="category-icon">💊</span>
+            <div class="category-title-th">พรอพพอลิส</div>
+            <div class="category-title-en">PROPOLIS</div>
+        </a>
+
+        <a href="/products/luffa" class="category-card">
+            <span class="category-icon">🧽</span>
+            <div class="category-title-th">ใยบวบ</div>
+            <div class="category-title-en">LUFFA</div>
+        </a>
+
+        <a href="/products/spa" class="category-card">
+            <span class="category-icon">✨</span>
+            <div class="category-title-th">ผลิตภัณฑ์สปา</div>
+            <div class="category-title-en">SPA PRODUCTS</div>
+        </a>
+    </div>
+</section>
+{% endblock %}

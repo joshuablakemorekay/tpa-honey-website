@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block title %}ผลิตภัณฑ์ - T.P.A. Honey Farm{% endblock %}
+
+{% block extra_css %}
+<style>
+    .page-header {
+        text-align: center;
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+    }
+
+    .page-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: var(--forest-green);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.3rem;
+        color: var(--earth-brown);
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 3rem;
+        margin: 3rem 0;
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.15);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid transparent;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .product-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(244, 165, 24, 0.3);
+        border-color: var(--honey-gold);
+    }
+
+    .product-icon {
+        text-align: center;
+        padding: 3rem 2rem 2rem;
+        background: linear-gradient(135deg, var(--honey-light) 0%, var(--cream) 100%);
+        font-size: 5rem;
+    }
+
+    .product-content {
+        padding: 2rem;
+    }
+
+    .product-title-th {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--forest-green);
+        margin-bottom: 0.5rem;
+    }
+
+    .product-title-en {
+        font-size: 1.1rem;
+        color: var(--honey-dark);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+
+    .product-description {
+        color: var(--charcoal);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+    }
+
+    .view-details {
+        display: inline-block;
+        background: var(--honey-gold);
+        color: var(--charcoal);
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .product-card:hover .view-details {
+        background: var(--honey-amber);
+        transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+        .products-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">🛒 ผลิตภัณฑ์ทั้งหมด</h1>
+    <p class="page-subtitle">All Products from T.P.A. Honey Farm</p>
+</div>
+
+<div class="products-grid">
+    {% for key, product in products.items() %}
+    {% if key != 'green_tea' %}
+    <a href="/products/{{ key }}" class="product-card">
+        <div class="product-icon">
+            {% if key == 'honey' %}🍯
+            {% elif key == 'bee_pollen' %}🌼
+            {% elif key == 'royal_jelly' %}👑
+            {% elif key == 'honey_comb' %}⬡
+            {% elif key == 'green_tea' %}🍵
+            {% elif key == 'propolis' %}💊
+            {% elif key == 'luffa' %}🧽
+            {% elif key == 'spa' %}✨
+            {% endif %}
+        </div>
+        <div class="product-content">
+            <h2 class="product-title-th">{{ product.title_th }}</h2>
+            <div class="product-title-en">{{ product.title_en }}</div>
+            <p class="product-description">{{ product.description_th }}</p>
+            <span class="view-details">ดูรายละเอียด →</span>
+        </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

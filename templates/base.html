@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}T.P.A. Honey Farm - ฟาร์มผึ้งเทพภักดี{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --honey-gold: #F4A518;
+            --honey-dark: #D68910;
+            --honey-light: #FFF4DC;
+            --honey-amber: #FFBF00;
+            --earth-brown: #6B4423;
+            --forest-green: #2D5016;
+            --cream: #FFF8E7;
+            --charcoal: #2C2416;
+            --bee-yellow: #FFD700;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Thai', sans-serif;
+            background: linear-gradient(135deg, var(--honey-light) 0%, var(--cream) 100%);
+            color: var(--charcoal);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Honeycomb Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='%23F4A518' fill-opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 120px 120px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(180deg, rgba(255,248,231,0.98) 0%, rgba(255,244,220,0.95) 100%);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(244, 165, 24, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--honey-gold);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .site-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--earth-brown);
+            text-shadow: 2px 2px 4px rgba(244, 165, 24, 0.3);
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .site-subtitle {
+            font-size: 1rem;
+            color: var(--forest-green);
+            font-weight: 600;
+        }
+
+        .contact-banner {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0.6rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--earth-brown);
+            margin-top: 0.8rem;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--forest-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.1rem;
+        }
+
+        .nav-container a:hover {
+            background: var(--honey-gold);
+            color: var(--charcoal);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(244, 165, 24, 0.4);
+        }
+
+        .nav-thai {
+            font-size: 0.95rem;
+        }
+
+        .nav-english {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--earth-brown);
+            color: var(--honey-light);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer a {
+            color: var(--honey-amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--bee-yellow);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 1.4rem;
+            }
+
+            .site-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .nav-container a {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="site-title">🐝 T.P.A. Honey Farm 🍯</h1>
+                <p class="site-subtitle">ฟาร์มผึ้งเทพภักดี - น้ำผึ้งแท้ 100%</p>
+            </div>
+            <div class="contact-banner">
+                <strong>📍 ที่อยู่:</strong> {{ contact.address_th }}<br>
+                <strong>📞 โทร:</strong> {{ contact.phone }} | <strong>📠 แฟกซ์:</strong> {{ contact.fax }}
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/">
+                <span class="nav-thai">หน้าแรก</span>
+                <span class="nav-english">HOME</span>
+            </a>
+            <a href="/about">
+                <span class="nav-thai">เกี่ยวกับเรา</span>
+                <span class="nav-english">ABOUT US</span>
+            </a>
+            <a href="/health-products">
+                <span class="nav-thai">สุขภาพ</span>
+                <span class="nav-english">HEALTH</span>
+            </a>
+            <a href="/skincare">
+                <span class="nav-thai">ความงาม</span>
+                <span class="nav-english">BEAUTY</span>
+            </a>
+            <a href="/gallery">
+                <span class="nav-thai">แกลเลอรี่</span>
+                <span class="nav-english">GALLERY</span>
+            </a>
+            <a href="/products">
+                <span class="nav-thai">ผลิตภัณฑ์</span>
+                <span class="nav-english">PRODUCTS</span>
+            </a>
+            <a href="/products/honey">
+                <span class="nav-thai">น้ำผึ้ง</span>
+                <span class="nav-english">HONEY</span>
+            </a>
+            <a href="/products/bee_pollen">
+                <span class="nav-thai">เกสรผึ้ง</span>
+                <span class="nav-english">BEE POLLEN</span>
+            </a>
+            <a href="/products/royal_jelly">
+                <span class="nav-thai">นมผึ้ง</span>
+                <span class="nav-english">ROYAL JELLY</span>
+            </a>
+            <a href="/products/honey_comb">
+                <span class="nav-thai">รวงผึ้ง</span>
+                <span class="nav-english">HONEY COMB</span>
+            </a>
+            <a href="/products/luffa">
+                <span class="nav-thai">ใยบวบ</span>
+                <span class="nav-english">LUFFA</span>
+            </a>
+            <a href="/products/spa">
+                <span class="nav-thai">สปา</span>
+                <span class="nav-english">SPA PRODUCTS</span>
+            </a>
+            <a href="/contact">
+                <span class="nav-thai">ติดต่อเรา</span>
+                <span class="nav-english">CONTACT</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">🍯 T.P.A. Honey Farm</div>
+            <p><strong>{{ contact.address_en }}</strong></p>
+            <p style="margin-top: 1rem;">
+                📞 TEL: {{ contact.phone }} | 📠 FAX: {{ contact.fax }}<br>
+                📧 E-MAIL: <a href="/cdn-cgi/l/email-protection#0c77772c6f6362786d6f782269616d65602c7171">{{ contact.email }}</a>
+            </p>
+            <p style="margin-top: 2rem; opacity: 0.8;">
+                &copy; 2025 T.P.A. Honey Farm - ฟาร์มผึ้งเทพภักดี | น้ำผึ้งแท้ 100%
+            </p>
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

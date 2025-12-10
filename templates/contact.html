@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}ติดต่อเรา - T.P.A. Honey Farm{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .contact-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .contact-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: var(--forest-green);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .contact-subtitle {
+        font-size: 1.3rem;
+        color: var(--earth-brown);
+    }
+
+    .contact-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin: 3rem 0;
+    }
+
+    .contact-card {
+        background: white;
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.15);
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(244, 165, 24, 0.3);
+        border-color: var(--honey-gold);
+    }
+
+    .contact-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    .contact-label {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--forest-green);
+        margin-bottom: 1rem;
+    }
+
+    .contact-detail {
+        font-size: 1.1rem;
+        color: var(--charcoal);
+        line-height: 1.8;
+    }
+
+    .contact-detail a {
+        color: var(--honey-dark);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .contact-detail a:hover {
+        color: var(--honey-amber);
+    }
+
+    .map-container {
+        margin: 4rem 0;
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(244, 165, 24, 0.15);
+    }
+
+    .map-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        color: var(--forest-green);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .map-frame {
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .business-hours {
+        background: linear-gradient(135deg, var(--honey-light) 0%, var(--cream) 100%);
+        padding: 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        margin: 3rem 0;
+    }
+
+    .hours-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        color: var(--forest-green);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .hours-detail {
+        font-size: 1.2rem;
+        color: var(--earth-brown);
+        line-height: 2;
+    }
+
+    @media (max-width: 768px) {
+        .contact-title {
+            font-size: 2rem;
+        }
+
+        .contact-cards {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+    <div class="contact-header">
+        <h1 class="contact-title">📞 ติดต่อเรา</h1>
+        <p class="contact-subtitle">Contact Us - T.P.A. Honey Farm</p>
+    </div>
+
+    <div class="contact-cards">
+        <div class="contact-card">
+            <span class="contact-icon">📍</span>
+            <div class="contact-label">ที่อยู่</div>
+            <div class="contact-detail">
+                {{ contact.address_th }}<br><br>
+                <strong>Address:</strong><br>
+                {{ contact.address_en }}
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <span class="contact-icon">📞</span>
+            <div class="contact-label">โทรศัพท์</div>
+            <div class="contact-detail">
+                <strong>Phone:</strong><br>
+                <a href="tel:028846177">{{ contact.phone }}</a><br><br>
+                <strong>Fax:</strong><br>
+                {{ contact.fax }}
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <span class="contact-icon">📧</span>
+            <div class="contact-label">อีเมล</div>
+            <div class="contact-detail">
+                <strong>E-mail:</strong><br>
+                <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="business-hours">
+        <div class="hours-title">⏰ เวลาทำการ</div>
+        <div class="hours-detail">
+            <strong>จันทร์ - ศุกร์:</strong> 08:00 - 17:00 น.<br>
+            <strong>เสาร์:</strong> 08:00 - 12:00 น.<br>
+            <strong>อาทิตย์:</strong> ปิดทำการ
+        </div>
+    </div>
+
+    <div class="map-container">
+        <div class="map-title">🗺️ แผนที่</div>
+        <iframe 
+            class="map-frame"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d968.7649934890934!2d100.47630697153478!3d13.787644208603854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29958f68e1f89%3A0x7d8f8c9e5a1b2c3d!2sTPA%20Beekeeping%20Farm!5e0!3m2!1sen!2sth!4v1234567890"
+            allowfullscreen
+            loading="lazy">
+        </iframe>
+        <p style="text-align: center; margin-top: 1rem; color: var(--earth-brown);">
+            <strong>📍 ที่อยู่:</strong> {{ contact.address_th }}<br>
+            {{ contact.address_en }}<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=TPA+Beekeeping+Farm+143%2F139+Arun+Amarin+Bangkok+Noi+Bangkok+10700+Thailand" target="_blank" style="color: var(--honey-dark); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 0.5rem; padding: 0.5rem 1rem; background: var(--honey-light); border-radius: 8px; transition: all 0.3s ease;">
+                🗺️ เปิดใน Google Maps
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
