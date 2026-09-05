@@ -4,6 +4,8 @@
 
 A modern, bilingual (Thai/English) Flask web application for T.P.A. Honey Farm showcasing premium honey and bee products.
 
+**👉 Visit the live site: https://tpa-honey-website.onrender.com**
+
 ## 🌟 Features
 
 - **Bilingual Support**: Thai and English throughout the site
@@ -63,7 +65,9 @@ tpa_honey_website/
 
 This website is deployed on [Render.com](https://render.com).
 
-**Live URL**: [Your website will be here after deployment]
+**Live URL**: https://tpa-honey-website.onrender.com
+
+> Hosted on Render's free tier, so the first visit after a quiet spell can take ~30 seconds to wake up. After that it's instant.
 
 ## 📧 Contact
 
