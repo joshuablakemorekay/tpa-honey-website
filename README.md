@@ -4,7 +4,7 @@
 
 A modern, bilingual (Thai/English) Flask web application for T.P.A. Honey Farm showcasing premium honey and bee products.
 
-**👉 Visit the live site: https://tpa-honey-website.onrender.com**
+**👉 Visit the live site: https://tpa-honey-website.pages.dev**
 
 ## 🌟 Features
 
@@ -65,7 +65,21 @@ tpa_honey_website/
 
 This website is deployed on [Render.com](https://render.com).
 
-**Live URL**: https://tpa-honey-website.onrender.com
+**Live URL**: https://tpa-honey-website.pages.dev
+
+The site is pre-rendered to static files by `freeze.py` and served from
+Cloudflare Pages, so it loads in about 0.3 seconds and is always awake.
+Every route is read-only, so there is nothing for a server to decide at
+request time. To publish a change:
+
+```
+python freeze.py
+wrangler pages deploy dist --project-name=tpa-honey-website --branch=main
+```
+
+The older Render deployment is still up at
+https://tpa-honey-website.onrender.com but sleeps when idle, so the first
+visitor after a quiet spell waits around 20 seconds.
 
 > Hosted on Render's free tier, so the first visit after a quiet spell can take ~30 seconds to wake up. After that it's instant.
 
