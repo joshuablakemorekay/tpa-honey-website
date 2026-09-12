@@ -1,0 +1,56 @@
+Copyright (c) 2026 Joshua Kay. All rights reserved.
+
+T.P.A. Honey Farm website — ฟาร์มผึ้งเทพภักดี
+https://tpa-honey-website.pages.dev
+
+
+THE SHORT VERSION
+
+Two different people own things in this repository, and the split matters.
+
+THE CODE — the Flask application, templates, stylesheets and build scripts —
+was written by Joshua Kay. It is public so the work can be read and judged. It
+is not open source.
+
+THE CONTENT — the business name, the product photography, the brochure text in
+Thai and English, and everything describing the farm and its products —
+belongs to T.P.A. Honey Farm. It appears here because the site was built for
+them. None of it is mine to license to anybody, and it is not covered by
+anything below.
+
+
+WHAT YOU MAY DO
+
+- Read the source code.
+- Quote short extracts of the code in a review, article or teaching material,
+  with attribution.
+
+
+WHAT YOU MAY NOT DO WITHOUT WRITTEN PERMISSION
+
+- Use this code, in whole or in part, in another project.
+- Copy the design, layout or templates into another site.
+- Use any of the photography, product descriptions, brochure text or branding.
+  That permission is not mine to give — it is the farm's.
+- Redistribute, republish, sell, sublicense or host this software.
+- Remove or alter this notice.
+
+
+ABOUT THE WORK
+
+This site was built without charge, modernising an existing website for a
+friend's business. It is shown as an example of work, not as a commercial
+engagement.
+
+
+NO WARRANTY
+
+This software is provided "as is", without warranty of any kind, express or
+implied. In no event shall the author be liable for any claim, damages or
+other liability arising from the software or its use.
+
+
+Code enquiries: joshua@smoald.com
+Anything about the farm, its products or its images: T.P.A. Honey Farm.
+
+This notice states an intention in plain English. It is not legal advice.
