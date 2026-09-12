@@ -297,7 +297,11 @@
             <p><strong>{{ contact.address_en }}</strong></p>
             <p style="margin-top: 1rem;">
                 📞 TEL: {{ contact.phone }} | 📠 FAX: {{ contact.fax }}<br>
-                📧 E-MAIL: <a href="/cdn-cgi/l/email-protection#0c77772c6f6362786d6f782269616d65602c7171">{{ contact.email }}</a>
+                {# Was href="/cdn-cgi/l/email-protection#..." — Cloudflare's
+                   obfuscated form, left behind in copied markup. That path only
+                   exists on Cloudflare, so the link 404'd everywhere else and
+                   the address shown was unclickable. #}
+                📧 E-MAIL: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
             </p>
             <p style="margin-top: 2rem; opacity: 0.8;">
                 &copy; 2025 T.P.A. Honey Farm - ฟาร์มผึ้งเทพภักดี | น้ำผึ้งแท้ 100%
