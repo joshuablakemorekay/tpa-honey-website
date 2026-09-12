@@ -45,3 +45,6 @@ Thumbs.db
 # Logs
 *.log
 dist/
+
+# Cloudflare / wrangler local cache
+.wrangler/
