@@ -1,0 +1,10 @@
+{
+  "format_1200x628": true,
+  "jar_and_dipper_visible": true,
+  "longan_blossom_visible": true,
+  "gold_led_palette": true,
+  "pink_accent_only": true,
+  "thai_text_legible": true,
+  "text_in_top_third": true,
+  "photographic_not_cartoon": true
+}

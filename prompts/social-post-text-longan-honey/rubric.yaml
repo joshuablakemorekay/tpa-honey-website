@@ -1,0 +1,57 @@
+# Evaluation rubric for: Social post copy — Longan Honey (Facebook, Thai/English)
+#
+# Every pass_condition is a Python expression evaluated by scripts/eval_runner.py
+# against `output` (the post text), `lines`, `re` and `json`.
+
+prompt: social-post-text-longan-honey
+version: 1
+criteria:
+  - name: bilingual
+    description: Output contains both Thai script and English words
+    weight: 5
+    pass_condition: re.search(r'[฀-๿]', output) is not None and re.search(r'[A-Za-z]{3,}', output) is not None
+
+  - name: thai_first
+    description: The first line of the post is in Thai — the customers are Thai, English is the afterthought
+    weight: 3
+    pass_condition: re.search(r'[฀-๿]', lines[0]) is not None
+
+  - name: farm_named_in_both_scripts
+    description: Both "ฟาร์มผึ้งเทพภักดี" and "T.P.A. Honey Farm" appear
+    weight: 4
+    pass_condition: "'ฟาร์มผึ้งเทพภักดี' in output and 'T.P.A. Honey Farm' in output"
+
+  - name: phone_number_present
+    description: The order line from the CTA (086-315-1355) is in the post, unaltered
+    weight: 4
+    pass_condition: "'086-315-1355' in output"
+
+  - name: all_seven_hashtags
+    description: Every hashtag from section 6 of the prompt is present
+    weight: 3
+    pass_condition: all(h in output for h in ['#TPAHoneyFarm', '#ฟาร์มผึ้งเทพภักดี', '#น้ำผึ้งแท้100', '#LonganHoney', '#น้ำผึ้งลำไย', '#ลพบุรี', '#RawHoney'])
+
+  - name: no_medical_claims
+    description: No "cures / heals / medicine" language in either language — Thai advertising rules are strict on health claims
+    weight: 5
+    pass_condition: not any(w in output.lower() for w in ['cure', 'heal', 'medicine', 'remedy', 'รักษา', 'หายจาก', 'บำบัด'])
+
+  - name: mentions_other_bee_products
+    description: Pollen, royal jelly or propolis get a mention so readers know it's a full bee farm
+    weight: 2
+    pass_condition: any(w in output.lower() for w in ['pollen', 'royal jelly', 'propolis', 'เกสร', 'นมผึ้ง', 'พรอพอลิส'])
+
+  - name: body_length_in_range
+    description: The post body (before the first hashtag) is 300–700 characters — the prompt asks for 400–500, with slack because Thai and English count differently
+    weight: 3
+    pass_condition: 300 <= len(output.split('#')[0].strip()) <= 700
+
+test_cases:
+  - input:
+      product: Longan Honey
+      platform: Facebook
+    expected_traits:
+      - Thai paragraph first, shorter English paragraph second
+      - farm named in both scripts, phone number intact
+      - all seven hashtags at the end
+      - no health claims

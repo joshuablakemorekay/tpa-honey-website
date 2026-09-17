@@ -48,3 +48,6 @@ dist/
 
 # Cloudflare / wrangler local cache
 .wrangler/
+
+# Prompt eval run outputs (results-summary.md is committed; per-run JSON is not)
+prompts/*/results/

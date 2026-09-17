@@ -1,0 +1,49 @@
+# Evaluation rubric for: Social post image — Longan Honey (Facebook, 1200×628)
+#
+# An image can't be checked by a script, so this rubric scores a REVIEWER'S
+# CHECKLIST instead: after looking at the generated image, fill in a small
+# JSON object with true/false for each key below and save it as the output.
+# The fixture in prompts/.fixtures/ shows the shape. Honest false values are
+# the point — a checklist that is always all-true proves nothing.
+
+prompt: social-post-image-longan-honey
+version: 1
+criteria:
+  - name: valid_checklist
+    description: Output is a JSON object containing every review key
+    weight: 5
+    pass_condition: all(k in json.loads(output) for k in ['format_1200x628', 'jar_and_dipper_visible', 'longan_blossom_visible', 'gold_led_palette', 'pink_accent_only', 'thai_text_legible', 'text_in_top_third', 'photographic_not_cartoon'])
+
+  - name: correct_format
+    description: Image is wide 1200×628 (Facebook feed), not Instagram square
+    weight: 5
+    pass_condition: json.loads(output)['format_1200x628'] is True
+
+  - name: hero_elements_present
+    description: The honey jar with dipper AND a longan blossom or branch are both visible
+    weight: 4
+    pass_condition: json.loads(output)['jar_and_dipper_visible'] is True and json.loads(output)['longan_blossom_visible'] is True
+
+  - name: on_brand_palette
+    description: Golds lead and the site pink is only an accent — a pink-led image reads as a beauty brand
+    weight: 4
+    pass_condition: json.loads(output)['gold_led_palette'] is True and json.loads(output)['pink_accent_only'] is True
+
+  - name: thai_text_usable
+    description: The Thai caption (น้ำผึ้งแท้ 100%) is legible and sits in the top third where it can be cropped or replaced if needed
+    weight: 3
+    pass_condition: json.loads(output)['thai_text_legible'] is True and json.loads(output)['text_in_top_third'] is True
+
+  - name: realistic_style
+    description: Photographic look, no cartoon bees or oversaturated colours
+    weight: 3
+    pass_condition: json.loads(output)['photographic_not_cartoon'] is True
+
+test_cases:
+  - input:
+      product: Longan Honey
+      reviewed_run: meta-ai-2026-09-17
+    expected_traits:
+      - JSON checklist with all eight keys
+      - format, hero elements and palette all true
+      - Thai text legible and in the top third
